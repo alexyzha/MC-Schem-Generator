@@ -4,7 +4,7 @@ CXX = g++
 CXXFLAGS = -g -std=c++11 -Wall
 #=======================================================#
 # objects
-OBJS = PerlinTest.o PerlinNoise.o
+OBJS = perlintest.o fractal.o
 #=======================================================#
 # SFML
 SFML_INC = /opt/homebrew/Cellar/sfml/2.6.1/include
@@ -22,12 +22,12 @@ perlin: $(OBJS)
 	$(CXX) $(CXXFLAGS) -o perlin $(OBJS) $(LIBS)
 #=======================================================#
 # PerlinTest.cpp
-PerlinTest.o: PerlinTest.cpp PerlinNoise.h
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ -c PerlinTest.cpp
+perlintest.o: FPerlinTest.cpp FractalPerlin.h
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ -c FPerlinTest.cpp
 #=======================================================#
 # PerlinNoise.cpp
-PerlinNoise.o: PerlinNoise.cpp PerlinNoise.h
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ -c PerlinNoise.cpp
+fractal.o: FractalPerlin.cpp FractalPerlin.h
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ -c FractalPerlin.cpp
 #=======================================================#
 # clean
 clean:
